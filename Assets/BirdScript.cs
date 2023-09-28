@@ -10,6 +10,9 @@ public class BirdScript : MonoBehaviour
     private ShakeBehavior shakeBehavior;
     public bool birdIsAlive = true;
 
+    [SerializeField]
+    private AudioSource impulseSoundEffect;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -22,6 +25,7 @@ public class BirdScript : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space) && birdIsAlive)
         {
+            impulseSoundEffect.Play();
             myRigidbody.velocity = Vector2.up * flapStrength;
         }
     }
