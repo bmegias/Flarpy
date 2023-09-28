@@ -13,6 +13,9 @@ public class BirdScript : MonoBehaviour
     [SerializeField]
     private AudioSource impulseSoundEffect;
 
+    [SerializeField]
+    private AudioSource collideSoundEffect;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -32,6 +35,7 @@ public class BirdScript : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        collideSoundEffect.Play();
         shakeBehavior.TriggerShake();
         logic.gameOver();
         birdIsAlive = false;
